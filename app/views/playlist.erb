@@ -1,0 +1,16 @@
+<h1> <%= @playlist.playlistname %>
+<br>
+ <% @playlist.songs.each do |s|%>
+    <ul>
+        <li><h2><% s.id %>Song Name: <%= s.songname %> / Created By: <%= s.artistname %> 
+        <form action='/song/<%= s.id %>' method="POST">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <button type="submit">Delete</button>
+    </form> <a href='/song/<%= s.id %>/edit'><button>Edit </button></a></h2>
+    </ul>
+ <% end %>
+<h4> <a href="/createsong/<%= @playlist.id %>" </a> Add A Song </h4>
+<br>
+<br>
+<br>
+<a href="/home" </a> Home 

@@ -1,0 +1,20 @@
+<% if Helpers.is_logged_in?(session) %>
+<h1> Welcome <%= @user.username %>!</h1><br>
+
+<% @user.playlists.each do |p| %>
+<ul>
+    <li> <h2> <a href="/playlist/<%= p.id %>"><%= p.playlistname %></a> <form action="/playlist/<%= p.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button>
+  </form>  <a href='/playlist/<%= p.id %>/edit'><button>Edit </button></a></h2>
+</ul>
+    <% end %>
+
+<br>
+<a href="/createplaylist"> Create A Playlist </a><br>
+<br>
+<a href="/logout"> Log Out </a>
+
+
+
+<% end %>

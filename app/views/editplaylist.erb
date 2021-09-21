@@ -1,0 +1,9 @@
+<h1> Edit Playlist Name </h1>
+
+    <form action='/playlist/<%= @playlist.id %>/edit' method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <label> Update Playlist Name: </label>
+    <input type="text" name="playlistname" /><br>
+    <br>
+    <input type=submit value="Update Playlist" />
+</form>

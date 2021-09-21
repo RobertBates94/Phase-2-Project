@@ -1,0 +1,19 @@
+<h1> Welcome to music </h1>
+
+<h4>Log In or Sign Up Below!</h4><br>
+
+<p> <%= @error %> </p>
+
+<form action='/' method="post">
+<label> Username: </label>
+<input type=text name="username" /><br>
+<br>
+<label> Password: </label>
+<input type=password name="password" /><br>
+<br>
+<input type=submit value="Log In" />
+
+
+</form>
+        <br>
+        <p> Don't have an account? <a href="/signup"> Sign Up Here</a> </p>
