@@ -2,7 +2,7 @@
 <br>
  <% @playlist.songs.each do |s|%>
     <ul>
-        <li><h2><% s.id %>Song Name: <%= s.songname %> / Created By: <%= s.artistname %> 
+        <li><h2><% s.id %>Song Name: <%= s.songname %> | Created By: <%= s.artistname %> 
         <form action='/song/<%= s.id %>' method="POST">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <button type="submit">Delete</button>
