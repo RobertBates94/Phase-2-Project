@@ -10,6 +10,22 @@ class UsersController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  # get "/" do
+
+  #   erb :login
+  # end
+
+  # post "/" do 
+  #   @user = User.find_by(username: params[:username])
+  #     if !!@user && @user.authenticate(params[:password])
+  #       session[:user_id] = @user.id
+  #       erb :home
+  #     else   
+  #       @error = "Sorry your username or password is incorrect, please try again."  
+  #       erb :login
+  #     end    
+  # end
+
 
     get "/signup" do
 
