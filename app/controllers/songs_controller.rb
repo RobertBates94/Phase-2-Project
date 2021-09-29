@@ -16,6 +16,17 @@ get "/createsong/:id" do
     erb :createsong
   end
 
+  post "/createsong/:id" do
+    @playlist = Playlist.find_by_id(params[:id])
+    @song = Song.create(songname:params[:songname], artistname:params[:artistname], genre:params[:genre])
+     @song.playlist_id = @playlist.id
+     if @song.save
+       redirect "/playlist/#{@playlist.id}"
+     else
+       redirect "/playlist/#{@playlist.id}" 
+     end
+   end
+
   delete "/song/:id" do 
     @song = Song.find_by_id(params[:id])
     @song.delete
@@ -39,13 +50,4 @@ get "/createsong/:id" do
     redirect "/playlist/#{@song.playlist_id}"
   end
 
-  post "/createsong/:id" do
-   @playlist = Playlist.find_by_id(params[:id])
-   @song = Song.create(songname:params[:songname], artistname:params[:artistname], genre:params[:genre])
-    @song.playlist_id = @playlist.id
-    if @song.save
-      redirect "/playlist/#{@playlist.id}"
-    else
-      redirect "/playlist/#{@playlist.id}" 
-    end
-  end
+end

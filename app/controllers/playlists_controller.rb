@@ -20,11 +20,11 @@ class PlaylistsController < Sinatra::Base
     @playlist = Playlist.new(params)
     @playlist.user_id = @user.id 
     if @playlist.save
-      redirect "/home"
+      erb :home
     else
       erb :createplaylist
     end
-   end
+  end
 
     get "/playlist/:id" do
         @playlist = Playlist.find_by_id(params[:id])
@@ -43,7 +43,7 @@ class PlaylistsController < Sinatra::Base
         @playlist = Playlist.find_by_id(params[:id])
         @playlist.delete
         
-        redirect '/home'
+        erb :home
     end
     
     get '/playlist/:id/edit' do
